@@ -1,0 +1,12 @@
+<div class="row row-cols-1 row-cols-md-3 g-4" style="padding: 20px">
+<% @posts.each do |post| %>
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <a class="card-title" href="/posts/<%= post.id %>"><%= post.title %></a>
+                <p class="card-text"><%= post.body %></p>       
+            </div>
+        </div>
+    </div>
+<% end %>
+</div>
