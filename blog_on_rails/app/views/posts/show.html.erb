@@ -3,7 +3,8 @@
         <div class="card-body">
             <h3 class="card-title"><%= @post.title %></h3>
             <p class="card-text"><%= @post.body %></p>
-            <p class="card-text text-muted" style="font-size: small;">Posted <%= time_ago_in_words(@post.created_at) %> ago</p>
+            <p class="card-text text-muted" style="font-size: small;">Posted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user&.name || "[Deleted]" %></p>
+                        <% if can?(:crud, @idea) %>
             <div class="form-inline">
                 <div class="btn btn-outline-primary">
                 <%= link_to "Edit", edit_post_path(@post) %>
@@ -11,6 +12,7 @@
                 <div class="btn btn-outline-primary">
                 <%= link_to "Delete", @post, method: :delete, data: {confirm: "Are you sure?"} %>
                 </div>
+                <% end %>
             </div>
         </div>
 
@@ -33,7 +35,10 @@
                         <%= comment.body %>
                     </p>
                     <p class="card-text text-muted" style="font-size: small;">
-                        Commented <%= time_ago_in_words(comment.created_at) %> ago &#8226; <%= link_to "Delete", comment_path(comment), method: :delete, data: { confirm: "Are you sure?"} %>
+                        Commented <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user&.name || "[DELETED]" %> 
+                        <% if can?(:crud, comment) %>
+                            &#8226; <%= link_to "Delete", comment_path(comment), method: :delete, data: { confirm: "Are you sure?"} %>
+                        <% end %>
                     </p>
                 </li>
                 <% end %>
