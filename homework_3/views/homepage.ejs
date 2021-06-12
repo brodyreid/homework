@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Splitter</title>
+</head>
+<body>
+    <form action="/split_result" method="GET">
+        <div>
+            <label for="amount">Amount $</label>
+            <div>
+                <input type="text" id="amount" name="amount">
+            </div>
+        </div>
+        <div>
+            <label for="tax">Tax %</label>
+            <div>
+                <input type="text" id="tax" name="tax">
+            </div>
+        </div>
+        <div>
+            <label for="tip">Tip %</label>
+            <div>
+                <input type="text" id="tip" name="tip">
+            </div>
+        </div>
+        <div>
+            <label for="people">Number of People</label>
+            <div>
+                <input type="text" id="people" name="people">
+            </div>
+        </div>
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>

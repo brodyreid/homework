@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<body>
+    <!-- <h1>it worked</h1> -->
+    <!-- <h1>Amount was <%= amount %></h1>
+    <h1>Tax was <%= tax %></h1>
+    <h1>Tip was <%= tip %></h1>
+    <h1>Number of people was <%= people %> </h1> -->
+    <p>
+        <% amount = Number(amount) %>
+        <% tax = Number(tax) %>
+        <% tip = Number(tip) %>
+        <% people = Number(people) %> 
+        <% let total = amount + tax + tip %> 
+        With <%=  people  %> people, each person needs to pay $<%= Math.round(total/people*100)/100 %> 
+    </p>
+</body>
+</html>
